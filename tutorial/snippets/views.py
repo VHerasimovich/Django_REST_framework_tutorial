@@ -10,7 +10,7 @@ from .serializers import SnippetSerializer
 @csrf_exempt
 def snippet_list(request):
     if request.method == 'GET':
-        snippets = Snippet.object.all()
+        snippets = Snippet.objects.all()
         serializer = SnippetSerializer(snippets, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
